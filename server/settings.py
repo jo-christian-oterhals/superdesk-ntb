@@ -236,7 +236,7 @@ PLANNING_EXPORT_BODY_TEMPLATE = '''
 <p>Til red: {{ item.ednote }}</p>
 {% endif %}
 {% if item.coverages %}
-<p>Dekning: {{ item.coverages | join(', ') }}
+<p>Dekning: {{ item.coverages | join(', ') }}</p>
 {% endif %}
 <p></p>
 {% endfor %}
