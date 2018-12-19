@@ -224,18 +224,21 @@ NIFS_QCODE_MAP = {1: '15054000',  # Fotball
 PLANNING_EXPORT_BODY_TEMPLATE = '''
 {% for item in items %}
 <h2>{{ item.name or item.headline or item.slugline }}</h2>
-<p>{{ item.description_text }}</p>
-<p></p>
+{{ item.description_text }}
 {% if item.get('event', {}).get('location') %}
-<p>Sted: {{ item.event.location[0].name }}.</p>
+<&nbsp;>Sted: {{ item.event.location[0].name }}.</p>
 {% endif %}
+{% if item.get('time', '') != '' %}
+<&nbsp;>Tid: {{ item.time }}.</p>
+{% endif %}
+<p></p>
 {% if item.get('ednote', '') != '' %}
 <p>Til red: {{ item.ednote }}</p>
 {% endif %}
 {% if item.coverages %}
 <p>Dekning: {{ item.coverages | join(', ') }}
 {% endif %}
-<p>---</p>
+<p></p>
 {% endfor %}
 '''
 NIFS_SPORT_MAP = {1: 'Fotball',
